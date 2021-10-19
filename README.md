@@ -1,5 +1,33 @@
 # MakersBNB
 
+## Setting up Database
+
+Connect to psql and create the makersbnb and makersbnb_test databases
+
+```
+psql
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
+```
+
+Exit it out of the psql REPL and back into your shell
+
+```
+\q
+```
+
+Run the SQL scripts to create tables for both databases
+
+```
+Create users table for main and test database
+psql -d makersbnb -f db/migrations/01_create_users_table.sql
+psql -d makersbnb_test -f db/migrations/01_create_users_table.sql
+
+Create spaces table for main and test database
+psql -d makersbnb -f db/migrations/02_create_spaces_table.sql
+psql -d makersbnb_test -f db/migrations/02_create_spaces_table.sql
+```
+
 ## User stories
 
 ```
