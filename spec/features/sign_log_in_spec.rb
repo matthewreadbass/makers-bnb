@@ -1,8 +1,7 @@
 feature "logging in to an existing account" do
   scenario "user logs in " do
     visit("/log_in_page")
-    save_and_open_page
-
+    # save_and_open_page
     fill_in "email", with: "example@gmail.com"
     fill_in "password", with: "password"
     click_button("Submit")
