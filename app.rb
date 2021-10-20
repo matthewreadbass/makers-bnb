@@ -30,4 +30,15 @@ class Makersbnb < Sinatra::Base
       "You have created an account"
     end
   end
+
+  get "/list_space" do 
+    erb(:list_space)
+  end 
+
+  post "/spaces" do 
+    "Added space"
+  
+  end 
+
+
 end
