@@ -31,7 +31,7 @@ psql -d makersbnb_test -f db/migrations/02_create_spaces_table.sql
 ## User stories
 
 ```
-As a host,
+[x] As a host,
 So that I can see other spaces,
 I would like to sign up to makersbnb
 Objects: User
@@ -39,7 +39,7 @@ Methods: .create(name, email, password)
 ```
 
 ```
-As a host,
+[ ] As a host,
 So that I can rent out my property,
 I would like to list my space on makersbnb
 Objects: Space
@@ -47,7 +47,7 @@ Methods: .create()
 ```
 
 ```
-As a host,
+[ ] As a host,
 So that I can rent out multiple properties,
 I would like to list more than one space.
 Objects: Space
@@ -56,7 +56,7 @@ Notes: properties can be listed in database and attached to a user id of the own
 ```
 
 ```
-As a host,
+[x] As a host,
 So that guests can see a specific space,
 I would like to provide a name for my space.
 Objects: Space
@@ -65,7 +65,7 @@ Notes: provide an argument for the title (like on a form)
 ```
 
 ```
-As a host,
+[x] As a host,
 So that guests can get more information about my property,
 I would like to provide a short description of the space.
 Objects: Space
@@ -74,7 +74,7 @@ Notes: provide an argument for the description (like on a form)
 ```
 
 ```
-As a host,
+[x] As a host,
 So that guests are aware of the current pricing of my property,
 I would like to add a price per night for my space.
 Objects: Space
@@ -83,7 +83,7 @@ Notes: host will submit the PPN on a form, with that value being passed as an ar
 ```
 
 ```
-As a host,
+[ ] As a host,
 So that my property isn’t double booked,
 I would like to specify a range of available rental dates.
 Objects: Space
@@ -92,7 +92,7 @@ Notes: have a date picker, in which the values will be passed in as arguments
 ```
 
 ```
-As a guest,
+[x] As a guest,
 So that I can rent a space,
 I would like to sign up to makersbnb.
 Objects: User
@@ -102,7 +102,7 @@ Notes: Same as for host
 ```
 
 ```
-As a guest,
+[ ] As a guest,
 So that I can rent a space,
 I would like to request an available space.
 Objects: User, Space
@@ -111,7 +111,7 @@ Notes: the user will click a ‘request’ button, and that will trigger a metho
 ```
 
 ```
-As a host,
+[ ] As a host,
 So that I can rent out my property,
 I would like to approve a rental request made by the guest.
 Objects: User, Space
@@ -120,7 +120,7 @@ Notes: host will accept the request made from a user, and the method will accept
 ```
 
 ```
-As a host/guest,
+[ ] As a host/guest,
 To avoid double bookings and disappointment,
 I would like makersbnb to only advertise available properties.
 Objects: Space
@@ -129,7 +129,7 @@ Notes: if the Space.available? == True, then display it on home page, otherwise 
 ```
 
 ```
-As a host,
+[ ] As a host,
 So that I can rent out my property,
 I would like my space to remain available until a request is approved.
 Objects: Space
