@@ -23,11 +23,18 @@ class Makersbnb < Sinatra::Base
       # erb(:passwords_dont_match)
       "Error, passwords do not match"
     else
-      @name = params[:name]
-      @email = params[:email]
-      @password = params[:password]
-      User.create(@name, @email, @password)
-      "You have created an account"
+    @name = params[:name]
+    @email = params[:email]
+    @password = params[:password]
+    connection = PG.connect(dbname: 'makersbnb')
+    @result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE email='#{@email}');")
+      if @result.column_values(0).include?("t") == false
+         User.create(@name, @email, @password)
+        "You have created an account"
+      else
+        "Email already in use"
+      end
+
     end
   end
 
@@ -39,3 +46,4 @@ class Makersbnb < Sinatra::Base
     "Added space"
   end
 end
+
