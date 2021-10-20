@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader"
 require "./lib/user"
+require "./lib/space"
 
 class Makersbnb < Sinatra::Base
   configure :development do
@@ -23,18 +24,17 @@ class Makersbnb < Sinatra::Base
       # erb(:passwords_dont_match)
       "Error, passwords do not match"
     else
-    @name = params[:name]
-    @email = params[:email]
-    @password = params[:password]
-    connection = PG.connect(dbname: 'makersbnb')
-    @result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE email='#{@email}');")
+      @name = params[:name]
+      @email = params[:email]
+      @password = params[:password]
+      connection = PG.connect(dbname: "makersbnb")
+      @result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE email='#{@email}');")
       if @result.column_values(0).include?("t") == false
-         User.create(@name, @email, @password)
+        User.create(@name, @email, @password)
         "You have created an account"
       else
         "Email already in use"
       end
-
     end
   end
 
@@ -42,8 +42,18 @@ class Makersbnb < Sinatra::Base
     erb(:list_space)
   end
 
-  post "/spaces" do
-    "Added space"
+  post "/add_space" do
+    @title = params[:title]
+    @description = params[:description]
+    @price = params[:price]
+    @available_from = params[:available_from]
+    @available_to = params[:available_to]
+    Space.add(@title, @description, @price, @available_from, @available_to)
+    redirect("/spaces")
+  end
+
+  get "/spaces" do
+    @spaces = Space.all
+    erb(:spaces)
   end
 end
-
