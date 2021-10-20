@@ -11,6 +11,17 @@ class Makersbnb < Sinatra::Base
   end
 
   get "/log_in_page" do
+    @email = params[:email]
+    @password = params[:password]
+    users = User.all
+    users.each do |user|
+      if user[:email] == @email && user[:password] == @password
+        # redirect("/log_in")
+        p "Correct"
+      else
+        p "Wrong credentials"
+      end
+    end
     erb(:log_in)
   end
 
