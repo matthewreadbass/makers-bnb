@@ -11,6 +11,7 @@ require "capybara/rspec"
 require "rspec"
 require "simplecov"
 require "simplecov-console"
+require "./spec/setup_test_db"
 
 # Tell Capybara to talk to MakersBNB
 Capybara.app = Makersbnb
@@ -40,6 +41,10 @@ SimpleCov.start
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  # Reset database before each RSpec run
+  config.before(:each) do
+    setup_test_db
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

@@ -1,19 +1,23 @@
 require "user"
 
 describe User do
-  it "returns all users" do
-    User.create("Bob", "bob@email.com", "bob123")
+  describe "#all" do
+    it "returns all users" do
+      User.create("Bob", "bob@email.com", "bob123")
 
-    users = User.all
+      users = User.all
 
-    expect(users).to include({ name: "Bob", email: "bob@email.com", password: "bob123" })
+      expect(users).to include({ name: "Bob", email: "bob@email.com", password: "bob123" })
+    end
   end
 
-  it "adds new user to database" do
-    User.create("John", "john@email.com", "john123")
+  describe "#create" do
+    it "adds new user to database" do
+      User.create("John", "john@email.com", "john123")
 
-    users = User.all
+      users = User.all
 
-    expect(users).to include({ name: "John", email: "john@email.com", password: "john123" })
+      expect(users).to include({ name: "John", email: "john@email.com", password: "john123" })
+    end
   end
 end
