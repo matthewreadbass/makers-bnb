@@ -31,14 +31,11 @@ class Makersbnb < Sinatra::Base
     end
   end
 
-  get "/list_space" do 
+  get "/list_space" do
     erb(:list_space)
-  end 
+  end
 
-  post "/spaces" do 
+  post "/spaces" do
     "Added space"
-  
-  end 
-
-
+  end
 end
