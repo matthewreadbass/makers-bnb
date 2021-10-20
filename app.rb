@@ -11,17 +11,6 @@ class Makersbnb < Sinatra::Base
   end
 
   get "/log_in_page" do
-    @email = params[:email]
-    @password = params[:password]
-    users = User.all
-    users.each do |user|
-      if user[:email] == @email && user[:password] == @password
-        # redirect("/log_in")
-        p "Correct"
-      else
-        p "Wrong credentials"
-      end
-    end
     erb(:log_in)
   end
 
@@ -41,4 +30,15 @@ class Makersbnb < Sinatra::Base
       "You have created an account"
     end
   end
+
+  get "/list_space" do 
+    erb(:list_space)
+  end 
+
+  post "/spaces" do 
+    "Added space"
+  
+  end 
+
+
 end
