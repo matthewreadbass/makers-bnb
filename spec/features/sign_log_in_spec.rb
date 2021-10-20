@@ -11,7 +11,7 @@ end
 feature "sign up" do
   scenario "user enters two correct passwords" do
     visit("/")
-    fill_in("email", with: "example@gmail.com")
+    fill_in("email", with: "example2@gmail.com")
     fill_in("password", with: "123")
     fill_in("password2", with: "123")
     click_button "Submit"
