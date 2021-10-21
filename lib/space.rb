@@ -23,14 +23,16 @@ class Space
     results.map { |space| { title: space["title"], description: space["description"], price: space["price"], available_from: space["available_from"], available_to: space["available_to"], available: space["available"] } }
   end
 
-  def self.add(title, description, price, available_from, available_to)
+  def self.add(title:, description:, price:, available_from:, available_to:)
     if ENV["ENVIRONMENT"] == "test"
       db = PG.connect(dbname: "makersbnb_test")
     else
       db = PG.connect(dbname: "makersbnb")
     end
 
-    db.exec("INSERT INTO spaces (title, description, price, available_from, available_to) VALUES('#{title}', '#{description}', '#{price}', '#{available_from}', '#{available_to}');")
+    result = db.exec_params("INSERT INTO spaces (title, description, price, available_from, available_to) VALUES($1, $2, $3, $4, $5);"[title, description, price, available_from, available_to])
+
+    Space.new(id: result[0]["id"], title: result[0]["title"], description: result[0]["description"], available_from: result[0]["available_from"], available_to: result[0]["available_to"])
   end
 
   def self.find(id:)

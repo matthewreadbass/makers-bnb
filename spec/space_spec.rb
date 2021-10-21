@@ -36,7 +36,7 @@ describe Space do
 
   describe ".find" do
     it "returns the requested bookmark object" do
-      space = Space.add(name: "Cozy Cottage", description: "Small cottage in the Cotswolds", price: "100", available_from: "2021-10-25", available_to: "2021-11-25")
+      space = Space.add(title: "Cozy Cottage", description: "Small cottage in the Cotswolds", price: "100", available_from: "2021-10-25", available_to: "2021-11-25")
 
       result = Space.find(id: space.id)
 
