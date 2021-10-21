@@ -56,4 +56,8 @@ class Makersbnb < Sinatra::Base
     @spaces = Space.all
     erb(:spaces)
   end
+
+  get "/spaces/:id" do
+    @space = Space.find(params[:id])
+  end
 end
