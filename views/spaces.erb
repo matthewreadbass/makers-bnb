@@ -9,13 +9,13 @@
 <body>
   <h1>Book a space</h1>
     <% @spaces.each do |space| %>
-        <% if space[:availablity] == "t" %>
+        <% if space[:availability] == "t" %>
             <div class="spaces">
             <h2><%= space[:title] %></h2>
             <p><%= space[:description] %></p> 
             <p>£<%= space[:price] %> per night</p>
             </div>
-        <% elsif space[:available] == "f" %>
+        <% elsif space[:availability] == "f" %>
         <% end %>
     <% end %>
 </body>
