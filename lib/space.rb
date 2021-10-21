@@ -55,14 +55,3 @@ class Space
     Space.new(id: result[0]["id"], title: result[0]["title"], description: result[0]["description"], price: result[0]["price"], available_from: result[0]["available_from"], available_to: result[0]["available_to"])
   end
 end
-
-#   def self.find(id:)
-#     if ENV["ENVIRONMENT"] == "test"
-#       connection = PG.connect(dbname: "bookmark_manager_test")
-#     else
-#       connection = PG.connect(dbname: "bookmark_manager")
-#     end
-#     result = connection.exec_params("SELECT * FROM bookmarks WHERE id = $1;", [id])
-#     Bookmark.new(id: result[0]["id"], title: result[0]["title"], url: result[0]["url"])
-#   end
-# end
