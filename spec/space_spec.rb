@@ -7,7 +7,7 @@ describe Space do
 
       spaces = Space.all
 
-      expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", availablity: "t" })
+      expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", availability: "t" })
     end
   end
 
@@ -17,7 +17,7 @@ describe Space do
 
       spaces = Space.all
 
-      expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", availablity: "t" })
+      expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", availability: "t" })
     end
   end
 end
