@@ -16,7 +16,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post "/log_in" do
-    "Welcome"
+    redirect("/spaces")
   end
 
   post "/sign_up" do
@@ -31,7 +31,8 @@ class Makersbnb < Sinatra::Base
       @result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE email='#{@email}');")
       if @result.column_values(0).include?("t") == false
         User.create(@name, @email, @password)
-        "You have created an account"
+        # "You have created an account"
+        redirect("/log_in_page")
       else
         "Email already in use"
       end
