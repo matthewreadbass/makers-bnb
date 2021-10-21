@@ -43,12 +43,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post "/add_space" do
-    @title = params[:title]
-    @description = params[:description]
-    @price = params[:price]
-    @available_from = params[:available_from]
-    @available_to = params[:available_to]
-    Space.add(@title, @description, @price, @available_from, @available_to)
+    Space.add(title: params[:title], description: params[:description], price: params[:price], available_from: params[:start_date], available_to: params[:end_date])
     redirect("/spaces")
   end
 
