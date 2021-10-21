@@ -11,7 +11,7 @@ require "capybara/rspec"
 require "rspec"
 require "simplecov"
 require "simplecov-console"
-require "./spec/setup_test_db"
+require_relative "./setup_test_db"
 
 # Tell Capybara to talk to MakersBNB
 Capybara.app = Makersbnb

@@ -11,6 +11,6 @@ feature "a user can view a request page for a specific space" do
 
   scenario "when a user clicks on a space they want to request" do
     click_link("Request")
-    expect(page).to have_content("Pick a date")
+    expect(page).to have_content("Las Vegas")
   end
 end

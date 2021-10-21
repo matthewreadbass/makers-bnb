@@ -1,14 +1,18 @@
 require "space"
+require "pg"
 
 describe Space do
   describe "#all" do
     it "returns all spaces" do
-      Space.add("Las Vegas", "Renting this place", "100", "2021-10-19", "2021-10-26")
+      db = PG.connect(dbname: "makersbnb_test")
 
+      db.exec("INSERT INTO spaces (title, description, price) VALUES ('Las Vegas', 'Renting this place', 100);")
       spaces = Space.all
 
-      # expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26" })
-      expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", available: "t" })
+      expect(spaces[0].title).to eq "Las Vegas"
+      expect(spaces[0].description).to eq "Renting this place"
+
+      # expect(spaces).to include({ title: "Las Vegas", description: "Renting this place", price: "100", available_from: "2021-10-19", available_to: "2021-10-26", available: "t" })
     end
   end
 

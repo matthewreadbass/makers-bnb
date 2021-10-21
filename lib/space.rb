@@ -30,7 +30,7 @@ class Space
       db = PG.connect(dbname: "makersbnb")
     end
 
-    result = db.exec_params("INSERT INTO spaces (title, description, price, available_from, available_to) VALUES($1, $2, $3, $4, $5);"[title, description, price, available_from, available_to])
+    result = db.exec_params("INSERT INTO spaces (title, description, price, available_from, available_to) VALUES($1, $2, $3, $4, $5) RETURNING id, title, description, price, available_from, available_to;"[title, description, price, available_from, available_to])
 
     Space.new(id: result[0]["id"], title: result[0]["title"], description: result[0]["description"], available_from: result[0]["available_from"], available_to: result[0]["available_to"])
   end
@@ -42,7 +42,7 @@ class Space
       db = PG.connect(dbname: "makersbnb")
     end
 
-    result = db.exec_params("SELECT * FROM spaces WHERE id = $1;", [id])
+    result = db.exec_params("SELECT * FROM spaces WHERE id = $1::int;", [id])
     Space.new(id: result[0]["id"], title: result[0]["title"], description: result[0]["description"], price: result[0]["price"], available_from: result[0]["available_from"], available_to: result[0]["available_to"])
   end
 end
