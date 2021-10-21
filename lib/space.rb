@@ -21,4 +21,14 @@ class Space
 
     db.exec("INSERT INTO spaces (title, description, price, available_from, available_to) VALUES('#{title}', '#{description}', '#{price}', '#{available_from}', '#{available_to}');")
   end
+
+  def self.find(id:)
+    if ENV["ENVIRONMENT"] == "test"
+      db = PG.connect(dbname: "makersbnb_test")
+    else
+      db = PG.connect(dbname: "makersbnb")
+    end
+
+    result = db.exec("SELECT * FROM spaces WHERE id=#{id};")
+  end
 end

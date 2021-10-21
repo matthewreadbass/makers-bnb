@@ -14,6 +14,7 @@
             <h2><%= space[:title] %></h2>
             <p><%= space[:description] %></p> 
             <p>£<%= space[:price] %> per night</p>
+            <a href="/spaces/<%= space[:id] %>">Request</a>
             </div>
         <% elsif space[:available] == "f" %>
         <% end %>
