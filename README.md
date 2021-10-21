@@ -47,7 +47,7 @@ Methods: .create()
 ```
 
 ```
-[ ] As a host,
+[ x ] As a host,
 So that I can rent out multiple properties,
 I would like to list more than one space.
 Objects: Space
