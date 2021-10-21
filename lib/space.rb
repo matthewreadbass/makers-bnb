@@ -9,7 +9,7 @@ class Space
     end
 
     results = db.exec("SELECT * FROM spaces;")
-    results.map { |space| { title: space["title"], description: space["description"], price: space["price"], available_from: space["available_from"], available_to: space["available_to"] } }
+    results.map { |space| { title: space["title"], description: space["description"], price: space["price"], available_from: space["available_from"], available_to: space["available_to"], availability: space["available"] } }
   end
 
   def self.add(title, description, price, available_from, available_to)

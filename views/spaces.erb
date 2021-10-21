@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakersBNB | Spaces</title>
+</head>
+<body>
+  <h1>Book a space</h1>
+    <% @spaces.each do |space| %>
+        <% if space[:availability] == "t" %>
+            <div class="spaces">
+            <h2><%= space[:title] %></h2>
+            <p><%= space[:description] %></p> 
+            <p>£<%= space[:price] %> per night</p>
+            </div>
+        <% elsif space[:availability] == "f" %>
+        <% end %>
+    <% end %>
+</body>
+</html>

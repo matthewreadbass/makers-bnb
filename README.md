@@ -47,7 +47,7 @@ Methods: .create()
 ```
 
 ```
-[ ] As a host,
+[ x ] As a host,
 So that I can rent out multiple properties,
 I would like to list more than one space.
 Objects: Space
@@ -135,3 +135,14 @@ I would like my space to remain available until a request is approved.
 Objects: Space
 Notes: involves 2 methods above this one, where the request will remain the same until the host accepts. the property will still be shown on the home page regardless until accepted
 ```
+## Diagrams in progress 
+
+**Final features may change** 
+
+Class Diagram for starting project: 
+
+![](images/image_123.png)
+
+MVC example for listing spaces:
+
+![](images/image_1234.png)

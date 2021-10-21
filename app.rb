@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader"
 require "./lib/user"
+require "./lib/space"
 
 class Makersbnb < Sinatra::Base
   configure :development do
@@ -41,7 +42,18 @@ class Makersbnb < Sinatra::Base
     erb(:list_space)
   end
 
-  post "/spaces" do
-    "Added space"
+  post "/add_space" do
+    @title = params[:title]
+    @description = params[:description]
+    @price = params[:price]
+    @available_from = params[:available_from]
+    @available_to = params[:available_to]
+    Space.add(@title, @description, @price, @available_from, @available_to)
+    redirect("/spaces")
+  end
+
+  get "/spaces" do
+    @spaces = Space.all
+    erb(:spaces)
   end
 end
