@@ -135,3 +135,14 @@ I would like my space to remain available until a request is approved.
 Objects: Space
 Notes: involves 2 methods above this one, where the request will remain the same until the host accepts. the property will still be shown on the home page regardless until accepted
 ```
+## Diagrams in progress 
+
+**Final features may change** 
+
+Class Diagram for starting project: 
+
+![](images/image123.png)
+
+MVC example for listing spaces:
+
+![](images/image1234.png)
