@@ -141,8 +141,8 @@ Notes: involves 2 methods above this one, where the request will remain the same
 
 Class Diagram for starting project: 
 
-![](images/image123.png)
+![](images/image_123.png)
 
 MVC example for listing spaces:
 
-![](images/image1234.png)
+![](images/image_1234.png)
