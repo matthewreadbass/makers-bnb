@@ -46,9 +46,8 @@ class Makersbnb < Sinatra::Base
     @title = params[:title]
     @description = params[:description]
     @price = params[:price]
-    @available_from = params[:available_from]
-    @available_to = params[:available_to]
-    Space.add(@title, @description, @price, @available_from, @available_to)
+    @user_id = params[:user_id]
+    Space.add(@title, @description, @price, @user_id)
     redirect("/spaces")
   end
 
