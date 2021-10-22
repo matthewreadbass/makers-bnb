@@ -1,5 +1,3 @@
-require "space"
-
 feature "user can list space" do
   scenario "user lists space" do
     visit("/list_space")
@@ -9,7 +7,6 @@ feature "user can list space" do
     fill_in "available_from", with: "2021/10/19"
     fill_in "available_to", with: "2021/10/26"
     click_button("Submit")
-
-    expect(Space.all).to include({ :available_from => "2021-10-19", :available_to => "2021-10-26", :availability => "t", :description => "Renting my space", :price => "100", :title => "Las Vegas" })
+    expect(page).to have_content "Las Vegas"
   end
 end
