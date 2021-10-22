@@ -7,9 +7,10 @@
 <body>
 
 <div class="space-details">
-  <h1> <%= @space.title %> </h1>
-  <p><%= @space.description %></p>
-  <p>£<%= @space.price %> a night</p>
+              <br>
+              <h2 class="text-dark text-capitalize"><%= @space.title %></h2>
+              <p class="fs-4 fw-light"><%= @space.description %></p> 
+              <p class="fw-bold fs-3">£<%= @space.price %> per night</p>
 </div>
 
 <div class="request-form">
