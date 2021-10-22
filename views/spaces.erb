@@ -8,13 +8,16 @@
 </head>
 <body>
   <h1>Book a space</h1>
-    <% @spaces.each do |space| %>
-            <div class="spaces">
-            <h2><%= space.title %></h2>
-            <p><%= space.description %></p> 
-            <p>£<%= space.price %> per night</p>
-            <a href="/spaces/<%= space.id %>">Request</a>
-            </div>
-      <% end %>
+    <%# <% if space[:availability] == "t" %> 
+      <% @spaces.each do |space| %>
+              <div class="spaces">
+              <h2><%= space.title %></h2>
+              <p><%= space.description %></p> 
+              <p>£<%= space.price %> per night</p>
+              <a href="/spaces/<%= space.id %>">Request</a>
+              </div>
+      <%# <% elsif space[:availability] == "f" %> 
+      <%# <% end %>
+        <% end %>
 </body>
 </html>
