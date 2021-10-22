@@ -1,5 +1,35 @@
-<h1>Pick a date</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MakersBNB | Request a Space</title>
+</head>
+<body>
 
-<%= @space.title %>
-<%= @space.description %>
-<%= @space.price %>
+<div class="space-details">
+  <h1> <%= @space.title %> </h1>
+  <p><%= @space.description %></p>
+  <p>£<%= @space.price %> a night</p>
+</div>
+
+<div class="request-form">
+  <p>Pick a night: </p>
+
+    <form action="/requests" method="POST">
+      <p>
+        <label for="check_in">Check in date:</label>
+        <input class="form-control" type="date" id="check_in" name="check_in">
+      </p>
+      <p>
+        <label for="check_out">Check out date:</label>
+        <input class="form-control" type="date" id="check_out" name="check_out">
+      </p>
+      <p>
+        <input class="btn btn-primary" type="submit" name="Submit">
+      </p>
+    </form>
+</div>
+
+
+</body>
+</html>
