@@ -31,9 +31,9 @@ class Makersbnb < Sinatra::Base
       @result = connection.exec("SELECT EXISTS(SELECT * FROM users WHERE email='#{@email}');")
       if @result.column_values(0).include?("t") == false
         User.create(@name, @email, @password)
-        "You have created an account"
+        redirect("/spaces")
       else
-        "Email already in use"
+        "<h1>Email already in use! Please choose another one, otherwise login to your account <a href='/log_in_page'>here</a>.</h1>"
       end
     end
   end
