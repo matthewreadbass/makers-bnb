@@ -26,6 +26,11 @@
 
 <div class="wrapper position-absolute top-50 start-50 translate-middle" >
 
+<% flash.keys.each do |type| %>
+<div class="alert alert-success" role="alert">
+    <%= flash[type] %>
+</div>
+<% end %>
 <%= yield %>
 </div>
   <!-- Option 1: Bootstrap Bundle with Popper -->
