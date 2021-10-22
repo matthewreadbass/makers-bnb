@@ -1,7 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <p>"Welcome - List a space"</p>
+</head>
 <form action='/add_space' method='POST'>
 <input type='text' name='title' placeholder='Space Name'>
 <input type='text' name='description' placeholder='Description'>
 <input type='text' name='price' placeholder='Price'>
-<input type='text' name='user_id' placeholder='User ID'>
+<input type='hidden' name='user_id' value='<%= session[:name] %>'>
 <input type='submit' name='Submit'>
 </form>
+</body>
+</html>

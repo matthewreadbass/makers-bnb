@@ -1,11 +1,10 @@
 feature "logging in to an existing account" do
   scenario "user logs in " do
     visit("/log_in_page")
-    # save_and_open_page
     fill_in "email", with: "example@gmail.com"
     fill_in "password", with: "password"
     click_button("Submit")
-    expect(page).to have_content("Welcome")
+    expect(page).to have_content "Welcome"
   end
 end
 feature "sign up" do
@@ -15,7 +14,7 @@ feature "sign up" do
     fill_in("password", with: "123")
     fill_in("password2", with: "123")
     click_button "Submit"
-    expect(page).to have_content "You have created an account"
+    expect(page).to have_content "Welcome - List a space"
   end
   scenario " user enters two different passwords" do
     visit("/")

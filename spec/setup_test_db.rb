@@ -1,7 +1,7 @@
 require "pg"
 
 def setup_test_db
-  p "Setting up test db..."
+  # p "Setting up test db..."
 
   db = PG.connect(dbname: "makersbnb_test")
 

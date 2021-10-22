@@ -7,6 +7,8 @@ class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  enable :sessions
+
   get "/" do
     erb(:sign_up)
   end
@@ -23,6 +25,7 @@ class Makersbnb < Sinatra::Base
     if params[:password] != params[:password2]
       erb(:passwords_dont_match)
     else
+      session[:name] = params[:name]
       @name = params[:name]
       @email = params[:email]
       @password = params[:password]
@@ -32,12 +35,16 @@ class Makersbnb < Sinatra::Base
         "Email already in use"
       else
         User.create(@name, @email, @password)
-        "You have created an account"
+        redirect("/list_space")
       end
     end
   end
 
   get "/list_space" do
+    connection = PG.connect(dbname: "makersbnb")
+    result = connection.exec("SELECT * FROM users;")
+    p result
+    @user_id = connection.exec("SELECT id FROM users WHERE first_name='#{session[:name]}';")
     erb(:list_space)
   end
 

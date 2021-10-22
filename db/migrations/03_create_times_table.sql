@@ -1,1 +1,1 @@
-CREATE TABLE times (id SERIAL PRIMARY KEY, space_id VARCHAR(50), available_from DATE, available_to DATE);
+CREATE TABLE times (id SERIAL PRIMARY KEY, space_id VARCHAR(50), available_from DATE, available_to DATE, available BOOLEAN NOT NULL DEFAULT 'y');
