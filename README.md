@@ -39,7 +39,7 @@ Methods: .create(name, email, password)
 ```
 
 ```
-[ ] As a host,
+[x] As a host,
 So that I can rent out my property,
 I would like to list my space on makersbnb
 Objects: Space
