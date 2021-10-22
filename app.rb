@@ -16,7 +16,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post "/log_in" do
-    "Welcome"
+    redirect("/spaces")
   end
 
   post "/sign_up" do
