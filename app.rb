@@ -42,16 +42,17 @@ class Makersbnb < Sinatra::Base
   end
 
   post "/add_space" do
-    @title = params[:title]
-    @description = params[:description]
-    @price = params[:price]
-    @user_id = params[:user_id]
-    Space.add(@title, @description, @price, @user_id)
+    Space.add(title: params[:title], description: params[:description], price: params[:price], user_id: params[:user_id])
     redirect("/spaces")
   end
 
   get "/spaces" do
     @spaces = Space.all
     erb(:spaces)
+  end
+
+  get "/spaces/:id" do
+    @space = Space.find(id: params[:id])
+    erb(:request)
   end
 end
