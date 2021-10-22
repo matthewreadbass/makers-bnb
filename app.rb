@@ -56,4 +56,8 @@ class Makersbnb < Sinatra::Base
     @space = Space.find(id: params[:id])
     erb(:request)
   end
+
+  post "/requests" do
+    "Space request sent to the host"
+  end
 end
